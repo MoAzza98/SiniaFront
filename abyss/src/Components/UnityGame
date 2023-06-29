@@ -1,0 +1,17 @@
+import React from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function UnityGame() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "Build/Build4.loader.js",
+    dataUrl: "Build/Build4.data",
+    frameworkUrl: "Build/Build4.framework.js",
+    codeUrl: "Build/Build4.wasm",
+  });
+
+  return (
+    <Unity unityProvider={unityProvider} style={{ width: 800, height: 600 }} />
+  );
+}
+
+export default UnityGame;

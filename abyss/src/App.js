@@ -8,10 +8,10 @@ import './overrideSuiButton.css';
 
 function App() {
   const { unityProvider, requestFullscreen, sendMessage } = useUnityContext({
-    loaderUrl: '/Build/Gamev1.loader.js',
-    dataUrl: '/Build/Gamev1.data',
-    frameworkUrl: '/Build/Gamev1.framework.js',
-    codeUrl: '/Build/Gamev1.wasm',
+    loaderUrl: '/Build/Gamev01.loader.js',
+    dataUrl: '/Build/Gamev01.data',
+    frameworkUrl: '/Build/Gamev01.framework.js',
+    codeUrl: '/Build/Gamev01.wasm',
   });
 
   const requestFullScr = () => {
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className={styles.backgroundContainer}>
-      <h1 className={styles.homePageTitle}> Abyss Seekers </h1>
+      <h1 className={styles.homePageTitle}> Aura Tale </h1>
       <div className={styles.gameContainer}>
         {' '}
         <Unity

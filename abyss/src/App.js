@@ -7,7 +7,7 @@ import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
 
 function App() {
-  const { unityProvider, requestFullscreen } = useUnityContext({
+  const { unityProvider, requestFullscreen, sendMessage } = useUnityContext({
     loaderUrl: '/Build/Gamev1.loader.js',
     dataUrl: '/Build/Gamev1.data',
     frameworkUrl: '/Build/Gamev1.framework.js',
@@ -15,12 +15,15 @@ function App() {
   });
 
   const requestFullScr = () => {
-    requestFullscreen(false);
+    requestFullscreen(true);
   };
 
   const handleWalletConnect = (data) => {
-    const unityInstance = window.UnityLoader.getInstance();
-    unityInstance.SendMessage('WalletConnectivity', 'WalletConnected', true);
+    sendMessage('WalletConnectivity', 'WalletConnected');
+  };
+
+  const handleWalletDisconnect = (data) => {
+    sendMessage('WalletConnectivity', 'WalletDisconnected');
   };
 
   return (
@@ -35,7 +38,10 @@ function App() {
       </div>
       <div className={styles.buttonMenu}>
         <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
-        <ConnectButton onConnectSuccess={handleWalletConnect}>
+        <ConnectButton
+          onConnectSuccess={handleWalletConnect}
+          onDisconnectSuccess={handleWalletDisconnect}
+        >
           Connect your wallet{' '}
         </ConnectButton>
       </div>

@@ -1,6 +1,6 @@
 {
   "name": "abyss",
-  "homepage": "https://abyss-front.vercel.app/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -20,10 +20,12 @@ function App() {
   };
 
   const handleWalletConnect = (data) => {
+   
     sendMessage("WalletConnectivity", "WalletConnected");
   };
 
   const handleWalletDisconnect = (data) => {
+
     sendMessage("WalletConnectivity", "WalletDisconnected");
   };
 

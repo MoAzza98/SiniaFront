@@ -33,7 +33,7 @@
   }
 
 .gameContainer{
-    border: 3px solid lightblue;
+    /* border: 3px solid lightblue; */
     align-items: center;
     justify-content: center;
     display: flex;
@@ -41,7 +41,7 @@
 }
 
 .buttonMenu{
-  border: 2px solid gold;
+  /* border: 2px solid gold; */
   width: 30%;
   margin-left: 35%;
   margin-top: 50px;

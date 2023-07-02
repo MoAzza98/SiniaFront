@@ -9,9 +9,9 @@ import '@suiet/wallet-kit/style.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <WalletProvider>
+    {/* <WalletProvider> */}
       <App />
-    </WalletProvider>
+    {/* </WalletProvider> */}
   </React.StrictMode>
 );
 

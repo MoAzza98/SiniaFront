@@ -8,10 +8,10 @@ import './overrideSuiButton.css';
 
 function App() {
   const { unityProvider, requestFullscreen, sendMessage } = useUnityContext({
-    loaderUrl: '/Build/Gamev01.loader.js',
-    dataUrl: '/Build/Gamev01.data',
-    frameworkUrl: '/Build/Gamev01.framework.js',
-    codeUrl: '/Build/Gamev01.wasm',
+    loaderUrl: '/Build/Gamev02.loader.js',
+    dataUrl: '/Build/Gamev02.data',
+    frameworkUrl: '/Build/Gamev02.framework.js',
+    codeUrl: '/Build/Gamev02.wasm',
   });
 
   const requestFullScr = () => {

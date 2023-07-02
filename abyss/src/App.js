@@ -41,13 +41,13 @@ function App() {
         />
       </div>
       <div className="buttonMenu">
-        <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
         <ConnectButton
           onConnectSuccess={handleWalletConnect}
           onDisconnectSuccess={handleWalletDisconnect}
         >
           Connect your wallet{" "}
         </ConnectButton>
+        <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
       </div>
     </div>
   );

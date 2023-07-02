@@ -7,34 +7,36 @@ import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
 
 function App() {
-
-  document.title = "Sinia Tale";
-
-  const { unityProvider, requestFullscreen, sendMessage, isLoaded } =
-    useUnityContext({
-      loaderUrl: '/Build/Gamev02.loader.js',
-      dataUrl: '/Build/Gamev02.data',
-      frameworkUrl: '/Build/Gamev02.framework.js',
-      codeUrl: '/Build/Gamev02.wasm',
-    });
+  const {
+    unityProvider,
+    requestFullscreen,
+    sendMessage,
+    isLoaded,
+    loadingProgression,
+  } = useUnityContext({
+    loaderUrl: '/Build/Gamev02.loader.js',
+    dataUrl: '/Build/Gamev02.data',
+    frameworkUrl: '/Build/Gamev02.framework.js',
+    codeUrl: '/Build/Gamev02.wasm',
+  });
 
   const requestFullScr = () => {
     requestFullscreen(true);
   };
 
   const handleWalletConnect = (data) => {
-   
-    sendMessage("WalletConnectivity", "WalletConnected");
+    sendMessage('WalletConnectivity', 'WalletConnected');
   };
 
   const handleWalletDisconnect = (data) => {
-
-    sendMessage("WalletConnectivity", "WalletDisconnected");
+    sendMessage('WalletConnectivity', 'WalletDisconnected');
   };
 
   return (
     <div>
-      <h1> Aura Tale </h1>
+      <div className={styles.siteText}>
+        <h1> Sinia Tale </h1>
+      </div>
       <div className={styles.gameContainer}>
         {' '}
         <Unity
@@ -45,6 +47,16 @@ function App() {
             height: 720,
           }}
         />
+        <div className={styles.siteText}>
+          {isLoaded && <p>Loaded {Math.round(loadingProgression * 100)}%</p>}
+          {!isLoaded && (
+            <p>Loading {Math.round(loadingProgression * 100)}%...</p>
+          )}
+          <p>
+            It is recommended to play in fullscreen mode for the best
+            experience.
+          </p>
+        </div>
       </div>
       {isLoaded && (
         <div className={styles.buttonMenu}>

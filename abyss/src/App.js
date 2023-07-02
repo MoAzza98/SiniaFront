@@ -27,8 +27,8 @@ function App() {
   };
 
   return (
-    <div className={styles.backgroundContainer}>
-      <h1 className={styles.homePageTitle}> Aura Tale </h1>
+    <div>
+      <h1 > Aura Tale </h1>
       <div className={styles.gameContainer}>
         {' '}
         <Unity

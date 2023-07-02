@@ -8,7 +8,7 @@
 .homePageTitle{
     color: white;
     /* border: 5px solid pink; */
-    font-family: 'Futura Condensed Light', sans-serif;
+    /* font-family: 'Futura Condensed Light', sans-serif; */
     letter-spacing: 0.05em;
     margin-left: 30%;
     width: 40%;
@@ -19,29 +19,29 @@
     position: relative;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Futura Condensed Light';
     src: url('../../Fonts/futura_condensed-webfont.woff2') format('woff2'),
          url('../../Fonts/futura_condensed-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+  } */
   
-  body {
+  /* body {
     font-family: 'Futura Condensed Light', sans-serif;
     background-color: black;
-  }
+  } */
 
 .gameContainer{
-    border: 3px solid lightblue;
+    /* border: 3px solid lightblue; */
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 .buttonMenu{
-  border: 2px solid gold;
+  /* border: 2px solid white; */
   width: 30%;
   margin-left: 35%;
   margin-top: 50px;
@@ -49,4 +49,11 @@
   display: flex;
   z-index: 3;
   position: relative;
+}
+
+.headerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

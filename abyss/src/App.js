@@ -7,6 +7,9 @@ import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
 
 function App() {
+
+  document.title = "Sinia Tale";
+
   const { unityProvider, requestFullscreen, sendMessage, isLoaded } =
     useUnityContext({
       loaderUrl: '/Build/Gamev02.loader.js',

@@ -51,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 .siteText {
@@ -64,9 +64,9 @@ body {
 
 .buttonMenu {
   /* border: 2px solid gold; */
-  width: 30%;
-  margin-left: 35%;
-  margin-top: 50px;
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 10px;
   justify-content: space-between;
   display: flex;
   z-index: 3;

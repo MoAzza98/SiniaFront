@@ -30,14 +30,14 @@ function App() {
     <div>
       <h1 > Aura Tale </h1>
       <div className={styles.gameContainer}>
-        {/* {' '}
+        {' '}
         <Unity
           unityProvider={unityProvider}
           style={{ width: 1280, height: 720 }}
-        /> */}
+        />
       </div>
       <div className={styles.buttonMenu}>
-        {/* <MainButton onClick={requestFullScr}>Fullscreen</MainButton> */}
+        <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
         <ConnectButton
           onConnectSuccess={handleWalletConnect}
           onDisconnectSuccess={handleWalletDisconnect}

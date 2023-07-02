@@ -7,7 +7,7 @@ import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
 
 function App() {
-  document.title = "Sinia Tale by AuraLabs";
+  document.title = 'Sinia Tale';
 
   const {
     unityProvider,

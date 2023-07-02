@@ -8,11 +8,11 @@ import '@suiet/wallet-kit/style.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <WalletProvider>
-      <App />
-    </WalletProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <WalletProvider>
+    <App />
+  </WalletProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

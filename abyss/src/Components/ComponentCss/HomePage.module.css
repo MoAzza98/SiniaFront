@@ -1,46 +1,55 @@
-.backgroundContainer{
-    background-color: black;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+.backgroundContainer {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
-.homePageTitle{
-    color: white;
-    /* border: 5px solid pink; */
-    font-family: 'Futura Condensed Light', sans-serif;
-    letter-spacing: 0.05em;
-    margin-left: 30%;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    position: relative;
+.homePageTitle {
+  color: white;
+  /* border: 5px solid pink; */
+  font-family: 'Futura Condensed Light', sans-serif;
+  letter-spacing: 0.05em;
+  margin-left: 30%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  position: relative;
 }
 
 @font-face {
-    font-family: 'Futura Condensed Light';
-    src: url('../../Fonts/futura_condensed-webfont.woff2') format('woff2'),
-         url('../../Fonts/futura_condensed-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  body {
-    font-family: 'Futura Condensed Light', sans-serif;
-    background-color: black;
-  }
-
-.gameContainer{
-    /* border: 3px solid lightblue; */
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-top: 5%;
+  font-family: 'Futura Condensed Light';
+  src: url('../../Fonts/futura_condensed-webfont.woff2') format('woff2'),
+    url('../../Fonts/futura_condensed-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.buttonMenu{
+body {
+  font-family: 'Futura Condensed Light', sans-serif;
+  background-color: black;
+}
+
+.gameContainer {
+  /* border: 3px solid lightblue; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 5%;
+}
+
+.siteText {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-self: center;
+  align-items: center;
+}
+
+.buttonMenu {
   /* border: 2px solid gold; */
   width: 30%;
   margin-left: 35%;

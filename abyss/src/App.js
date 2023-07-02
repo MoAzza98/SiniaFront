@@ -7,6 +7,8 @@ import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
 
 function App() {
+  document.title = "Sinia Tale by AuraLabs";
+
   const {
     unityProvider,
     requestFullscreen,
@@ -53,7 +55,7 @@ function App() {
             <p>Loading {Math.round(loadingProgression * 100)}%...</p>
           )}
           <p>
-            It is recommended to play in fullscreen mode for the best
+            It is recommended to play in fullscreen mode for the best possible
             experience.
           </p>
         </div>

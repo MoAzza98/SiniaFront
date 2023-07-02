@@ -1,6 +1,6 @@
 {
   "name": "abyss",
-  "homepage": "https://sinia-tale.netlify.app",
+  "homepage": "https://siniatale.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

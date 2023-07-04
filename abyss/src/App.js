@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import HomePage from './Components/HomePage';
 import styles from './Components/ComponentCss/HomePage.module.css';
 import MainButton from './Components/UI/MainButton';
 import { ConnectButton } from '@suiet/wallet-kit';
 import './overrideSuiButton.css';
+import detectEthereumProvider from '@metamask/detect-provider';
 
 function App() {
   document.title = 'Sinia Tale';
@@ -34,6 +35,88 @@ function App() {
     sendMessage('WalletConnectivity', 'WalletDisconnected');
   };
 
+  const [hasProvider, setHasProvider] = useState();
+  const [walletLengthValue, setWalletLength] = useState(0);
+  const initialState = { accounts: [] }; /* New */
+  const [wallet, setWallet] = useState(initialState); /* New */
+
+  const [isConnecting, setIsConnecting] = useState(false); /* New */
+  const [error, setError] = useState(false); /* New */
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    const refreshAccounts = (accounts) => {
+      if (accounts.length > 0) {
+        updateWallet(accounts);
+      } else {
+        // if length 0, user is disconnected
+        setWallet(initialState);
+      }
+    };
+
+    const refreshChain = (chainId) => {
+      setWallet((wallet) => ({ ...wallet, chainId }));
+    };
+
+    const getProvider = async () => {
+      const provider = await detectEthereumProvider({ silent: true });
+      setHasProvider(Boolean(provider));
+
+      if (provider) {
+        const accounts = await window.ethereum.request({
+          method: 'eth_accounts',
+        });
+        refreshAccounts(accounts);
+        window.ethereum.on('accountsChanged', refreshAccounts);
+        window.ethereum.on('chainChanged', refreshChain);
+      }
+    };
+
+    getProvider();
+
+    return () => {
+      window.ethereum?.removeListener('accountsChanged', refreshAccounts);
+      window.ethereum?.removeListener('chainChanged', refreshChain);
+    };
+  }, []);
+
+  const updateWallet = async (accounts) => {
+    const chainId = await window.ethereum.request({
+      method: 'eth_chainId',
+    });
+    setWallet({ accounts, chainId });
+  };
+
+  const handleConnect = async () => {
+    /* Updated */
+    setIsConnecting(true); /* New */
+    await window.ethereum
+      .request({
+        /* Updated */ method: 'eth_requestAccounts',
+      })
+      .then((accounts) => {
+        /* New */
+        setError(false); /* New */
+        updateWallet(accounts); /* New */
+      }) /* New */
+      .catch((err) => {
+        /* New */
+        setError(true); /* New */
+        setErrorMessage(err.message); /* New */
+      }); /* New */
+    setIsConnecting(false); /* New */
+    handleWalletConnect();
+  };
+
+  useEffect(() => {
+    console.log(wallet.accounts.length);
+    if (wallet.accounts.length == 0) {
+      handleWalletDisconnect();
+    }
+  }, [wallet.accounts.length == 0]);
+
+  const disableConnect = Boolean(wallet) && isConnecting;
+
   return (
     <div>
       <div className={styles.siteText}>
@@ -62,14 +145,18 @@ function App() {
       </div>
       {isLoaded && (
         <div className={styles.buttonMenu}>
-          <ConnectButton
-            onConnectSuccess={handleWalletConnect}
-            onDisconnectSuccess={handleWalletDisconnect}
-          >
-            Connect your wallet{' '}
-          </ConnectButton>
+          {hasProvider && wallet.accounts.length == 0 && (
+            <MainButton onClick={handleConnect}>Connect MetaMask</MainButton>
+          )}
+          {hasProvider && wallet.accounts.length != 0 && (
+            <MainButton onClick={handleConnect}>Disconnect MetaMask</MainButton>
+          )}
+          {error /* New code block */ && (
+            <div onClick={() => setError(false)}>
+              <strong>Error:</strong> {errorMessage}
+            </div>
+          )}
           <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
-          
         </div>
       )}
     </div>

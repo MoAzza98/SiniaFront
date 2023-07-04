@@ -149,7 +149,7 @@ function App() {
             <MainButton onClick={handleConnect}>Connect MetaMask</MainButton>
           )}
           {hasProvider && wallet.accounts.length != 0 && (
-            <MainButton onClick={handleConnect}>Disconnect MetaMask</MainButton>
+            <MainButton>Wallet Connected</MainButton>
           )}
           {error /* New code block */ && (
             <div onClick={() => setError(false)}>

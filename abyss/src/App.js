@@ -105,15 +105,16 @@ function App() {
         setErrorMessage(err.message); /* New */
       }); /* New */
     setIsConnecting(false); /* New */
-    handleWalletConnect();
   };
 
   useEffect(() => {
     console.log(wallet.accounts.length);
     if (wallet.accounts.length == 0) {
       handleWalletDisconnect();
+    } else {
+      handleWalletConnect();
     }
-  }, [wallet.accounts.length == 0]);
+  }, [wallet.accounts.length]);
 
   const disableConnect = Boolean(wallet) && isConnecting;
 

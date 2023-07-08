@@ -56,7 +56,7 @@ function App() {
           )}
           <p>
             It is recommended to play in fullscreen mode for the best possible
-            experience.
+            experience. Controls: WASD to move.
           </p>
         </div>
       </div>
@@ -69,7 +69,6 @@ function App() {
             Connect your wallet{' '}
           </ConnectButton>
           <MainButton onClick={requestFullScr}>Fullscreen</MainButton>
-          
         </div>
       )}
     </div>
